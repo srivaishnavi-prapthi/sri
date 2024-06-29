@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Pending Tasks
+                </div>
+                <div id="pendingTasks" class="card-body task-list" ondrop="drop(event, 'pending')" ondragover="allowDrop(event)">
+                    <!-- Dynamically populated pending tasks will go here -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-warning">
+                    Ongoing Tasks
+                </div>
+                <div id="ongoingTasks" class="card-body task-list" ondrop="drop(event, 'ongoing')" ondragover="allowDrop(event)">
+                    <!-- Dynamically populated ongoing tasks will go here -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    Completed Tasks
+                </div>
+                <div id="completedTasks" class="card-body task-list" ondrop="drop(event, 'completed')" ondragover="allowDrop(event)">
+                    <!-- Dynamically populated completed tasks will go here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Task Details -->
+    <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="taskModalLabel">Task Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Task Title:</strong> <span id="modalTaskTitle"></span></p>
+                    <p><strong>Description:</strong> <span id="modalTaskDescription"></span></p>
+                    <p><strong>Deadline:</strong> <span id="modalTaskDeadline"></span></p>
+                    <div class="text-center">
+                        <button id="startTimerBtn" class="btn btn-primary">Start Timer</button>
+                        <span id="timerDisplay" class="ml-3"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="completeTaskBtn" type="button" class="btn btn-success">Mark as Completed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap and jQuery scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
